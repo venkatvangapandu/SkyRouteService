@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 18
+VisualStudioVersion = 18.6.11822.322 stable
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkyRoute.Api", "SkyRoute.Api.csproj", "{E51144B9-5CA3-1BD5-4683-EC036341B1E3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E51144B9-5CA3-1BD5-4683-EC036341B1E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E51144B9-5CA3-1BD5-4683-EC036341B1E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E51144B9-5CA3-1BD5-4683-EC036341B1E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E51144B9-5CA3-1BD5-4683-EC036341B1E3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {496ADB80-84F2-4854-9B2E-4423E432AB0F}
+	EndGlobalSection
+EndGlobal
