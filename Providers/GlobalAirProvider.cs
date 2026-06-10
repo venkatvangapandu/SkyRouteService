@@ -1,16 +1,18 @@
 ﻿using SkyRoute.Api.Models;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace SkyRoute.Api.Providers
 {
     public class GlobalAirProvider : IAirlineProvider
     {
-        public List<FlightSearchResult> SearchFlights(FlightSearchRequest request)
+        public Task<List<FlightSearchResult>> SearchFlightsAsync(FlightSearchRequest request, CancellationToken cancellationToken = default)
         {
             var baseFare = 200m;
             var surcharge = baseFare * 0.15m;
             var price = Math.Round(baseFare + surcharge, 2);
 
-            return new List<FlightSearchResult>
+            var results = new List<FlightSearchResult>
             {
                 new FlightSearchResult
                 {
@@ -26,6 +28,8 @@ namespace SkyRoute.Api.Providers
                     TotalPrice = price * request.Passengers
                 }
             };
+
+            return Task.FromResult(results);
         }
     }
 }

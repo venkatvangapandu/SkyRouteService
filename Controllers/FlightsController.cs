@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SkyRoute.Api.Models;
 using SkyRoute.Api.Services;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace SkyRoute.Api.Controllers
 {
@@ -18,9 +20,9 @@ namespace SkyRoute.Api.Controllers
         }
 
         [HttpPost("search")]
-        public IActionResult SearchFlights([FromBody] FlightSearchRequest request)
+        public async Task<IActionResult> SearchFlights([FromBody] FlightSearchRequest request, CancellationToken cancellationToken)
         {
-            var results = _flightSearchService.SearchFlights(request);
+            var results = await _flightSearchService.SearchFlightsAsync(request, cancellationToken);
             return Ok(results);
         }
 

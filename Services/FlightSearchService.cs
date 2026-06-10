@@ -1,5 +1,7 @@
 ﻿using SkyRoute.Api.Models;
 using SkyRoute.Api.Providers;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace SkyRoute.Api.Services
 {
@@ -16,12 +18,13 @@ namespace SkyRoute.Api.Services
             };
         }
 
-        public List<FlightSearchResult> SearchFlights(FlightSearchRequest request)
+        public async Task<List<FlightSearchResult>> SearchFlightsAsync(FlightSearchRequest request, CancellationToken cancellationToken = default)
         {
             var results = new List<FlightSearchResult>();
             foreach (var provider in _providers)
             {
-                results.AddRange(provider.SearchFlights(request));
+                var providerResults = await provider.SearchFlightsAsync(request, cancellationToken);
+                results.AddRange(providerResults);
             }
             return results;
         }
